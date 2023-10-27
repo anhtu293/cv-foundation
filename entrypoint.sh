@@ -15,12 +15,9 @@ fi
 
 echo "Starting with UID : $LOCAL_USER_ID, base user: $BASE_USER"
 
-export CONDA_HOME=/opt/miniconda;
-export PATH=${CONDA_HOME}/condabin:${CONDA_HOME}/bin:${PATH};
-source activate base;
 
 if [ "$#" -ne 0 ]; then
-  su -s /bin/bash $BASE_USER -c "export CONDA_HOME=/opt/miniconda; export PATH=${CONDA_HOME}/condabin:${CONDA_HOME}/bin:${PATH}; source activate base; $@"
+  su -s /bin/bash $BASE_USER -c "$@"
 else
-  su -s /bin/bash $BASE_USER -c "export CONDA_HOME=/opt/miniconda; export PATH=${CONDA_HOME}/condabin:${CONDA_HOME}/bin:${PATH}; source activate base; script -q /dev/null -c 'bash -i'"
+  su -s /bin/bash $BASE_USER -c "script -q /dev/null -c 'bash -i'"
 fi

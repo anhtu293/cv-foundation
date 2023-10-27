@@ -29,6 +29,7 @@ The above command launch the docker container which mount `/home/anhtu/workspace
 
 # Roadmap
 - [ ] Implement basic blocks: `datasets`, `blocks`, `extractors`
-- [ ] `classification` training pipeline
-- [ ] `constrastive_learning` pipeline
+- [ ] `classification` training pipeline.
+- [ ] `constrastive_learning` pipeline.
 - [ ] JEPA pipeline: I-JEPA, MC-JEPA. For more info: [A Path Towards Autonomous Machine Intelligence](https://openreview.net/pdf?id=BZ5a1r-kVsf)
+- [ ] Knowledge distillation pipeline.
