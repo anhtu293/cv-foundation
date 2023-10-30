@@ -22,8 +22,8 @@ RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3
 
 # Create cv user
 RUN useradd --create-home --uid 1000 --shell /bin/bash cv && usermod -aG sudo cv && echo "cv ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN chmod -R o+w /home/cv
 
-USER cv
 ENV HOME /home/cv
 WORKDIR /home/cv
 
@@ -31,6 +31,7 @@ WORKDIR /home/cv
 RUN pip install torch==${pytorch}+${pycuda} torchvision==${torchvision}+${pycuda} torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/${pycuda}
 RUN pip install pytorch_lightning==${pytorch_lightning}
 
+USER cv
 COPY --chown=cv:cv requirements.txt /home/cv/install/requirements.txt
 RUN pip install -r /home/cv/install/requirements.txt
 
